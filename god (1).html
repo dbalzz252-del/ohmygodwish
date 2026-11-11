@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오! 마이갓(God) - 풍암동 2026 크리스마스 소원 신청서</title>
+
+    <!-- Open Graph (OG) Meta Tags for Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="오! 마이갓(God) - 풍암동 어린이 소원 편지 신청">
+    <meta property="og:description" content="2026년 풍암동 크리스마스 트리 점등식! 아이들의 소원, 꿈, 고민을 들려주세요.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1543589077-47d5199647ce?q=80&w=1200&auto=format&fit=crop">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- html2pdf.js for Client-side PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        xmasRed: '#991B1B',
+                        xmasGold: '#D97706',
+                        xmasGreen: '#14532D',
+                        parchment: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        batang: ['"Gowun Batang"', 'serif'],
+                        sans: ['"Noto Sans KR"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #311021 100%);
+            min-height: 100vh;
+        }
+
+        .font-batang {
+            font-family: 'Gowun Batang', serif;
+        }
+
+        /* Printable A4 Layout Specifications */
+        @media print {
+            body {
+                background: white !important;
+            }
+            body * {
+                visibility: hidden;
+            }
+            #batchPrintArea, #batchPrintArea * {
+                visibility: visible;
+            }
+            #batchPrintArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 210mm;
+                margin: 0;
+                padding: 0;
+            }
+            .a4-page {
+                width: 210mm;
+                height: 297mm;
+                padding: 15mm !important;
+                box-sizing: border-box;
+                page-break-after: always;
+                box-shadow: none !important;
+                border: 14px double #166534 !important;
+                background-color: #ffffff !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* A4 Fixed Dimension Preview Style (Enhanced White Christmas Pattern) */
+        .a4-page {
+            width: 210mm;
+            min-height: 296mm;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            border: 14px double #166534;
+            position: relative;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #991B1B;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased pb-12">
+
+    <!-- Header Section -->
+    <header class="relative overflow-hidden text-white py-12 px-4 sm:px-6 text-center border-b-4 border-amber-500 shadow-2xl">
+        <!-- Top Right Admin Icon Button -->
+        <div class="absolute top-4 right-4 z-20 no-print">
+            <button id="adminAuthBtn" onclick="openAdminLoginModal()" title="관리자 모드" class="p-3 bg-slate-900/70 hover:bg-slate-900 text-amber-300 hover:text-amber-200 border border-amber-500/40 rounded-full shadow-lg transition-all transform hover:scale-110 flex items-center justify-center">
+                <i class="fa-solid fa-gear text-lg"></i>
+            </button>
+            <button id="adminLogoutBtn" onclick="logoutAdmin()" title="관리자 로그아웃" class="hidden p-3 bg-red-900/80 hover:bg-red-900 text-white border border-red-400/40 rounded-full shadow-lg transition-all transform hover:scale-110 flex items-center justify-center">
+                <i class="fa-solid fa-right-from-bracket text-lg"></i>
+            </button>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-amber-400/30">
+                <i class="fa-solid fa-tree text-green-400"></i> 풍암동 2026년 크리스마스 트리 점등식
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold font-batang tracking-tight text-amber-100 drop-shadow-md">
+                '오! 마이갓<span class="text-2xl font-sans text-amber-300 font-normal">(God)</span>'
+            </h1>
+            <p class="text-lg sm:text-xl font-batang text-amber-200/90 mt-2">
+                풍암동 어린이 소원 · 꿈 · 고민 해결 프로젝트
+            </p>
+            <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                2026년 따뜻한 성탄절을 맞아 풍암동 어린이들을 위한 특별한 기적이 펼쳐집니다.<br>
+                아이들의 소중한 소원, 꿈, 마음속 고민을 편지에 담아 보내주세요.<br>
+                하나님과 풍암동 주민들의 이웃사랑으로 따뜻하게 감싸드립니다.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto mt-8 px-4">
+        
+        <!-- Tab Banner / Status bar -->
+        <div class="flex justify-between items-center mb-6 no-print">
+            <div id="currentTabTitle" class="text-white font-batang font-bold text-lg flex items-center gap-2">
+                <i class="fa-solid fa-pen-nib text-amber-400"></i> 소원 편지 신청하기
+            </div>
+            <div id="adminIndicator" class="hidden text-xs bg-amber-500/20 border border-amber-400/40 text-amber-200 px-3 py-1 rounded-full flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 관리자 접속됨 (<span id="savedCount">0</span>건)
+            </div>
+        </div>
+
+        <!-- FORM SECTION -->
+        <div id="formSection" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-10 border border-amber-200/50">
+            <div class="border-b border-gray-200 pb-4 mb-6">
+                <h2 class="text-2xl font-bold text-red-900 font-batang flex items-center gap-2">
+                    <i class="fa-solid fa-envelope-open-text text-amber-600"></i> 오! 마이갓(God) 사업 신청서
+                </h2>
+                <p class="text-xs text-gray-500 mt-1">* 모든 항목을 정확히 입력해 주셔야 심사 및 선물 전달 대상에 포함됩니다.</p>
+            </div>
+
+            <form id="wishForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                
+                <!-- 1. 이름 & 2. 연락처 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">
+                            1. 이름 <span class="text-red-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <input type="text" id="applicantName" required placeholder="어린이 이름을 입력하세요"
+                                class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:bg-white outline-none transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">
+                            2. 연락처 <span class="text-red-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <input type="tel" id="applicantPhone" required placeholder="010-XXXX-XXXX (보호자 연락처)"
+                                class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:bg-white outline-none transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 주소 -->
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        3. 주소 (풍암동 거주 아동) <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+                        <input type="text" id="applicantAddress" required placeholder="예: 광주광역시 서구 풍암동 OO아파트 O동 O호"
+                            class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:bg-white outline-none transition">
+                    </div>
+                </div>
+
+                <!-- 4. 이루고 싶은 내용 -->
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">
+                        4. 이루고 싶은 내용 (소원, 꿈, 고민) <span class="text-red-500">*</span>
+                    </label>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-3 mb-3 rounded-r-lg text-xs text-amber-900 flex items-start gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-600 mt-0.5"></i>
+                        <div>
+                            <strong>작성 유의사항:</strong> 소원이 물건일 경우, 품목명 및 구매 가능한 인터넷 사이트 주소(URL)를 상세히 작성해 주세요.
+                        </div>
+                    </div>
+                    <textarea id="wishContent" rows="4" required placeholder="예: 크리스마스 선물로 꼭 갖고 싶은 동화책 세트가 있어요. (품목명: OO출판사 전집 / 구매사이트: http://...)"
+                        class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:bg-white outline-none transition leading-relaxed"></textarea>
+                </div>
+
+                <!-- 5. 이루고 싶은 이유 -->
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        5. 이루고 싶은 이유 <span class="text-red-500">*</span>
+                    </label>
+                    <textarea id="wishReason" rows="4" required placeholder="이 소원이 왜 이루어졌으면 하는지 간절한 마음이나 사연을 적어주세요."
+                        class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:bg-white outline-none transition leading-relaxed"></textarea>
+                </div>
+
+                <!-- 개인정보 동의 -->
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3">
+                    <h3 class="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-1">
+                        <i class="fa-solid fa-shield-halved text-green-700"></i> 개인정보 수집 및 이용 동의
+                    </h3>
+                    <div class="text-xs text-gray-600 bg-white p-3 rounded border border-gray-200 h-24 overflow-y-auto leading-relaxed">
+                        1. 수집/이용 목적: 풍암동 2026 크리스마스 트리 점등식 '오! 마이갓(God)' 심사, 소원 전달 및 안내 연락<br>
+                        2. 수집 항목: 이름, 연락처, 주소<br>
+                        3. 보유 및 이용 기간: 행사 종료 및 물품 지원 완료 후 파기<br>
+                        4. 동의 거부 권리: 동의를 거부할 수 있으나 미동의 시 소원 신청 대상에서 제외될 수 있습니다.
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer mt-2">
+                        <input type="checkbox" id="privacyConsent" required class="w-4 h-4 text-red-600 rounded focus:ring-red-500 border-gray-300">
+                        <span class="text-xs font-medium text-gray-800">[필수] 개인정보 수집 및 이용에 동의합니다.</span>
+                    </label>
+                </div>
+
+                <!-- 제출 버튼 -->
+                <div class="pt-4 text-center">
+                    <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-red-700 via-red-600 to-amber-600 hover:from-red-800 hover:to-amber-700 text-white font-bold text-lg rounded-xl shadow-lg transform active:scale-95 transition flex items-center justify-center gap-2 mx-auto">
+                        <i class="fa-solid fa-paper-plane"></i> 제출 및 신청서 확인
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- ADMIN DASHBOARD SECTION -->
+        <div id="adminSection" class="hidden bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-8 border border-amber-200/50">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-200 pb-5 mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800 font-batang flex items-center gap-2">
+                        <i class="fa-solid fa-user-shield text-amber-600"></i> 풍암동 '오! 마이갓(God)' 관리자 대시보드
+                    </h2>
+                    <p class="text-xs text-gray-500 mt-1">주민들이 제출한 모든 소원 편지를 취합하고 A4 일괄 인쇄/엑셀로 내보냅니다.</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                    <button onclick="downloadCSV()" class="px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg transition flex items-center gap-1.5 shadow">
+                        <i class="fa-solid fa-file-excel"></i> 엑셀(CSV) 저장
+                    </button>
+                    <button onclick="printSelected()" class="px-3.5 py-2 bg-red-700 hover:bg-red-800 text-white text-xs font-bold rounded-lg transition flex items-center gap-1.5 shadow">
+                        <i class="fa-solid fa-print"></i> 선택항목 A4 일괄 인쇄
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter & Search Bar -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 bg-slate-50 p-4 rounded-xl border border-gray-200">
+                <div class="relative md:col-span-2">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="renderAdminTable()" placeholder="이름, 연락처, 소원 내용 검색..."
+                        class="w-full pl-9 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-amber-500 outline-none">
+                </div>
+                <div>
+                    <select id="statusFilter" onchange="renderAdminTable()" class="w-full py-2 px-3 bg-white border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-amber-500 outline-none">
+                        <option value="ALL">전체 심사 상태 보기</option>
+                        <option value="대기중">대기중</option>
+                        <option value="승인">승인 (소원 성취)</option>
+                        <option value="보류">보류</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                <table class="w-full text-xs text-left text-gray-700">
+                    <thead class="text-xs text-gray-700 uppercase bg-slate-100 border-b border-gray-200">
+                        <tr>
+                            <th class="p-3 text-center"><input type="checkbox" id="selectAllCheck" onchange="toggleSelectAll(this)" class="rounded"></th>
+                            <th class="p-3">접수번호 / 일시</th>
+                            <th class="p-3">이름 (연락처)</th>
+                            <th class="p-3">주소</th>
+                            <th class="p-3">소원/꿈 요약</th>
+                            <th class="p-3 text-center">심사 상태</th>
+                            <th class="p-3 text-center">관리</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody" class="divide-y divide-gray-200 bg-white">
+                        <!-- Table rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 rounded-2xl shadow-2xl border border-amber-500/30 max-w-md w-full p-6 text-white relative">
+            <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 bg-amber-500/10 rounded-full border border-amber-400/30 flex items-center justify-center mx-auto mb-3 text-amber-400 text-2xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-xl font-bold font-batang text-amber-200">관리자 인증</h3>
+                <p class="text-xs text-gray-400 mt-1">풍암동 '오! 마이갓(God)' 대시보드 접근용 로그인</p>
+            </div>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1">아이디 (ID)</label>
+                    <input type="text" id="adminIdInput" required placeholder="아이디 입력"
+                        class="w-full px-3 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1">비밀번호 (Password)</label>
+                    <input type="password" id="adminPwInput" required placeholder="비밀번호 입력"
+                        class="w-full px-3 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div id="loginErrorMsg" class="hidden text-xs text-red-400 bg-red-950/50 p-2.5 rounded border border-red-800 text-center">
+                    아이디 또는 비밀번호가 올바르지 않습니다.
+                </div>
+                <button type="submit" class="w-full py-3 bg-amber-600 hover:bg-amber-700 font-bold text-sm text-white rounded-lg transition shadow-lg mt-2">
+                    로그인하기
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PREVIEW & PRINT MODAL (Enhanced White Christmas A4 Letter) -->
+    <div id="previewModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+        <div class="relative bg-slate-900 rounded-xl shadow-2xl max-w-4xl w-full max-h-[95vh] flex flex-col my-auto">
+            
+            <div class="p-4 bg-slate-800 rounded-t-xl flex flex-wrap justify-between items-center gap-2 border-b border-slate-700 no-print">
+                <div class="text-white font-bold flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-file-pdf text-red-400"></i> A4 소원 편지 신청서 (풍암동)
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="downloadSinglePDF()" class="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-lg transition flex items-center gap-1.5 shadow">
+                        <i class="fa-solid fa-file-arrow-down"></i> PDF 저장
+                    </button>
+                    <button onclick="printSingleLetter()" class="px-4 py-2 bg-red-700 hover:bg-red-800 text-white text-xs font-bold rounded-lg transition flex items-center gap-1.5 shadow">
+                        <i class="fa-solid fa-print"></i> 즉시 인쇄
+                    </button>
+                    <button onclick="closeModal()" class="px-3 py-2 bg-slate-700 hover:bg-slate-600 text-gray-300 hover:text-white text-xs font-bold rounded-lg transition">
+                        <i class="fa-solid fa-xmark"></i> 닫기
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-4 sm:p-8 overflow-y-auto flex-1 flex justify-center bg-slate-950">
+                <div id="singlePrintArea">
+                    <!-- Dynamic White Christmas A4 content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Batch Print Container -->
+    <div id="batchPrintArea" class="hidden"></div>
+
+    <!-- JavaScript Core Logic -->
+    <script>
+        let applications = JSON.parse(localStorage.getItem('omg_fungam_wishes') || '[]');
+        let isAdminLoggedIn = false;
+
+        window.onload = function() {
+            updateSavedCount();
+            renderAdminTable();
+        };
+
+        function openAdminLoginModal() {
+            if (isAdminLoggedIn) {
+                switchTab('admin');
+                return;
+            }
+            document.getElementById('adminIdInput').value = '';
+            document.getElementById('adminPwInput').value = '';
+            document.getElementById('loginErrorMsg').classList.add('hidden');
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const id = document.getElementById('adminIdInput').value.trim();
+            const pw = document.getElementById('adminPwInput').value.trim();
+
+            if (id === 'vnddkaehd' && pw === '4539') {
+                isAdminLoggedIn = true;
+                closeAdminLoginModal();
+                document.getElementById('adminAuthBtn').classList.add('hidden');
+                document.getElementById('adminLogoutBtn').classList.remove('hidden');
+                document.getElementById('adminIndicator').classList.remove('hidden');
+                switchTab('admin');
+            } else {
+                document.getElementById('loginErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            document.getElementById('adminAuthBtn').classList.remove('hidden');
+            document.getElementById('adminLogoutBtn').classList.add('hidden');
+            document.getElementById('adminIndicator').classList.add('hidden');
+            switchTab('form');
+        }
+
+        function switchTab(tab) {
+            const formSection = document.getElementById('formSection');
+            const adminSection = document.getElementById('adminSection');
+            const tabTitle = document.getElementById('currentTabTitle');
+
+            if(tab === 'form') {
+                formSection.classList.remove('hidden');
+                adminSection.classList.add('hidden');
+                tabTitle.innerHTML = `<i class="fa-solid fa-pen-nib text-amber-400"></i> 소원 편지 신청하기`;
+            } else {
+                if (!isAdminLoggedIn) {
+                    openAdminLoginModal();
+                    return;
+                }
+                formSection.classList.add('hidden');
+                adminSection.classList.remove('hidden');
+                tabTitle.innerHTML = `<i class="fa-solid fa-user-shield text-amber-400"></i> 관리자 대시보드`;
+                renderAdminTable();
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('applicantName').value.trim();
+            const phone = document.getElementById('applicantPhone').value.trim();
+            const address = document.getElementById('applicantAddress').value.trim();
+            const content = document.getElementById('wishContent').value.trim();
+            const reason = document.getElementById('wishReason').value.trim();
+            const consent = document.getElementById('privacyConsent').checked;
+
+            if (!consent) {
+                alert('개인정보 동의 항목에 체크해 주세요.');
+                return;
+            }
+
+            const newApp = {
+                id: Date.now().toString().slice(-5),
+                name: name,
+                phone: phone,
+                address: address,
+                content: content,
+                reason: reason,
+                status: '대기중',
+                date: new Date().toLocaleString('ko-KR')
+            };
+
+            applications.unshift(newApp);
+            saveData();
+            openSingleModal(newApp);
+
+            document.getElementById('wishForm').reset();
+        }
+
+        function saveData() {
+            localStorage.setItem('omg_fungam_wishes', JSON.stringify(applications));
+            updateSavedCount();
+        }
+
+        function updateSavedCount() {
+            document.getElementById('savedCount').innerText = applications.length;
+        }
+
+        // Pure White Background Christmas A4 Letter Layout (Enhanced Size & Christmas Graphics)
+        function generateA4HTML(app) {
+            return `
+                <div class="a4-page p-10 sm:p-14 relative text-slate-800 flex flex-col justify-between my-4 shadow-2xl">
+                    
+                    <!-- Enlarged Christmas Decorative Icons -->
+                    <div class="absolute top-4 left-4 text-red-700 text-5xl opacity-90"><i class="fa-solid fa-holly-berry"></i></div>
+                    <div class="absolute top-4 right-4 text-red-700 text-5xl opacity-90"><i class="fa-solid fa-holly-berry"></i></div>
+                    <div class="absolute bottom-5 left-5 text-emerald-800 text-5xl opacity-90"><i class="fa-solid fa-tree"></i></div>
+                    <div class="absolute bottom-5 right-5 text-emerald-800 text-5xl opacity-90"><i class="fa-solid fa-tree"></i></div>
+
+                    <div>
+                        <!-- Title Header with Ribbon Icon -->
+                        <div class="text-center border-b-2 border-red-800/30 pb-6 mb-8 relative">
+                            <div class="text-amber-600 text-3xl mb-1"><i class="fa-solid fa-ribbon"></i></div>
+                            <p class="text-sm tracking-widest text-emerald-800 font-batang font-bold uppercase">✝ 2026 풍암동 크리스마스 트리 점등식 ✝</p>
+                            <h1 class="text-4xl sm:text-5xl font-extrabold font-batang text-red-900 mt-2 tracking-tight">
+                                '오! 마이갓(God)' 소원 편지
+                            </h1>
+                            <p class="text-sm text-gray-600 font-batang mt-2">
+                                "풍암동 어린이들의 꿈과 고민을 이루어주는 성탄 소원 편지함"
+                            </p>
+                        </div>
+
+                        <!-- Applicant Info Grid (Enlarged Text) -->
+                        <div class="grid grid-cols-2 gap-4 bg-red-50/60 p-5 rounded-2xl border-2 border-red-200 mb-8 text-base">
+                            <div>
+                                <span class="font-bold text-red-950 font-batang text-lg">[ 신청 아동 성명 ] :</span>
+                                <span class="font-bold text-gray-900 ml-2 text-lg">${escapeHtml(app.name)}</span>
+                            </div>
+                            <div>
+                                <span class="font-bold text-red-950 font-batang text-lg">[ 보호자 연락처 ] :</span>
+                                <span class="font-semibold text-gray-900 ml-2 text-lg">${escapeHtml(app.phone)}</span>
+                            </div>
+                            <div class="col-span-2">
+                                <span class="font-bold text-red-950 font-batang text-lg">[ 거 주 주 소 ] :</span>
+                                <span class="text-gray-900 ml-2 text-base">${escapeHtml(app.address)}</span>
+                            </div>
+                            <div class="col-span-2 text-xs text-gray-500 border-t border-red-200/80 pt-2.5 flex justify-between">
+                                <span>접수일시: ${app.date}</span>
+                                <span>접수번호: OMG-FG-${app.id}</span>
+                            </div>
+                        </div>
+
+                        <!-- Wish Content Box (Enlarged Text & Height) -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold font-batang text-emerald-900 border-b-2 border-emerald-800/30 pb-2 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-star text-amber-500 text-base"></i> 1. 이루고 싶은 내용 (소원 / 꿈 / 고민)
+                            </h3>
+                            <div class="bg-white p-5 rounded-2xl border-2 border-gray-200 min-h-[160px] text-base leading-relaxed whitespace-pre-wrap font-batang shadow-sm">${escapeHtml(app.content)}</div>
+                        </div>
+
+                        <!-- Wish Reason Box (Enlarged Text & Height) -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold font-batang text-red-900 border-b-2 border-red-800/30 pb-2 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-heart text-red-600 text-base"></i> 2. 이루고 싶은 이유 (사연)
+                            </h3>
+                            <div class="bg-white p-5 rounded-2xl border-2 border-gray-200 min-h-[160px] text-base leading-relaxed whitespace-pre-wrap font-batang shadow-sm">${escapeHtml(app.reason)}</div>
+                        </div>
+                    </div>
+
+                    <!-- Clean Empty Footer Container -->
+                    <div class="mt-auto"></div>
+
+                </div>
+            `;
+        }
+
+        // Single View Modal
+        function openSingleModal(app) {
+            const container = document.getElementById('singlePrintArea');
+            container.innerHTML = generateA4HTML(app);
+            document.getElementById('previewModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('previewModal').classList.add('hidden');
+        }
+
+        function printSingleLetter() {
+            const content = document.getElementById('singlePrintArea').innerHTML;
+            const printArea = document.getElementById('batchPrintArea');
+            printArea.innerHTML = content;
+            printArea.classList.remove('hidden');
+            window.print();
+            printArea.classList.add('hidden');
+        }
+
+        function downloadSinglePDF() {
+            const element = document.getElementById('singlePrintArea');
+            const opt = {
+                margin: 0,
+                filename: `오마이갓_신청서_풍암동.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Admin Table Rendering
+        function renderAdminTable() {
+            const tbody = document.getElementById('adminTableBody');
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const filter = document.getElementById('statusFilter').value;
+
+            tbody.innerHTML = '';
+
+            const filtered = applications.filter(app => {
+                const matchSearch = app.name.toLowerCase().includes(search) || 
+                                    app.phone.includes(search) || 
+                                    app.content.toLowerCase().includes(search);
+                const matchStatus = (filter === 'ALL') || (app.status === filter);
+                return matchSearch && matchStatus;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-gray-400">접수된 소원 신청서가 없습니다.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(app => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-amber-50/50 transition";
+                tr.innerHTML = `
+                    <td class="p-3 text-center"><input type="checkbox" class="app-checkbox rounded" value="${app.id}"></td>
+                    <td class="p-3">
+                        <span class="font-bold text-gray-900">OMG-${app.id}</span>
+                        <div class="text-[10px] text-gray-400">${app.date}</div>
+                    </td>
+                    <td class="p-3">
+                        <div class="font-bold text-gray-800">${escapeHtml(app.name)}</div>
+                        <div class="text-gray-500 text-[11px]">${escapeHtml(app.phone)}</div>
+                    </td>
+                    <td class="p-3 max-w-xs truncate text-gray-600">${escapeHtml(app.address)}</td>
+                    <td class="p-3 max-w-xs truncate text-amber-900 font-medium">${escapeHtml(app.content)}</td>
+                    <td class="p-3 text-center">
+                        <select onchange="updateStatus('${app.id}', this.value)" class="text-xs p-1 rounded border border-gray-300 ${app.status==='승인'?'bg-green-100 text-green-800 font-bold':app.status==='보류'?'bg-red-100 text-red-800':'bg-amber-100 text-amber-800'}">
+                            <option value="대기중" ${app.status==='대기중'?'selected':''}>대기중</option>
+                            <option value="승인" ${app.status==='승인'?'selected':''}>승인</option>
+                            <option value="보류" ${app.status==='보류'?'selected':''}>보류</option>
+                        </select>
+                    </td>
+                    <td class="p-3 text-center">
+                        <div class="flex items-center justify-center gap-1">
+                            <button onclick='viewAppById("${app.id}")' class="px-2 py-1 bg-amber-600 text-white rounded text-[11px] hover:bg-amber-700">A4 편지</button>
+                            <button onclick='deleteApp("${app.id}")' class="px-2 py-1 bg-gray-200 text-gray-600 rounded text-[11px] hover:bg-red-100 hover:text-red-600"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function toggleSelectAll(master) {
+            const checkboxes = document.querySelectorAll('.app-checkbox');
+            checkboxes.forEach(cb => cb.checked = master.checked);
+        }
+
+        function updateStatus(id, newStatus) {
+            const app = applications.find(a => a.id === id);
+            if (app) {
+                app.status = newStatus;
+                saveData();
+                renderAdminTable();
+            }
+        }
+
+        function viewAppById(id) {
+            const app = applications.find(a => a.id === id);
+            if (app) openSingleModal(app);
+        }
+
+        function deleteApp(id) {
+            if (confirm('해당 신청서를 삭제하시겠습니까?')) {
+                applications = applications.filter(a => a.id !== id);
+                saveData();
+                renderAdminTable();
+            }
+        }
+
+        function printSelected() {
+            const selectedIds = Array.from(document.querySelectorAll('.app-checkbox:checked')).map(cb => cb.value);
+            if (selectedIds.length === 0) {
+                alert('인쇄할 신청서를 선택해 주세요.');
+                return;
+            }
+
+            const printArea = document.getElementById('batchPrintArea');
+            printArea.innerHTML = '';
+
+            selectedIds.forEach(id => {
+                const app = applications.find(a => a.id === id);
+                if (app) {
+                    printArea.innerHTML += generateA4HTML(app);
+                }
+            });
+
+            printArea.classList.remove('hidden');
+            window.print();
+            printArea.classList.add('hidden');
+        }
+
+        function downloadCSV() {
+            if (applications.length === 0) {
+                alert('다운로드할 신청서 데이터가 없습니다.');
+                return;
+            }
+
+            let csvContent = "\uFEFF";
+            csvContent += "접수번호,신청자이름,연락처,주소,이루고싶은내용,이루고싶은이유,심사상태,접수일시\n";
+
+            applications.forEach(app => {
+                const row = [
+                    `OMG-${app.id}`,
+                    `"${app.name.replace(/"/g, '""')}"`,
+                    `"${app.phone.replace(/"/g, '""')}"`,
+                    `"${app.address.replace(/"/g, '""')}"`,
+                    `"${app.content.replace(/"/g, '""')}"`,
+                    `"${app.reason.replace(/"/g, '""')}"`,
+                    `"${app.status}"`,
+                    `"${app.date}"`
+                ];
+                csvContent += row.join(",") + "\n";
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", `풍암동_오마이갓_소원신청목록_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>
